@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deployment Demo Site</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .demo-button {
+            background: #ff6b6b;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            margin: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .demo-button:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .counter {
+            font-size: 2em;
+            margin: 30px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            display: inline-block;
+            min-width: 100px;
+        }
+        
+        .status {
+            margin-top: 30px;
+            padding: 15px;
+            background: rgba(0, 255, 0, 0.2);
+            border-radius: 8px;
+            border-left: 4px solid #00ff00;
+        }
+        
+        .timestamp {
+            font-size: 0.9em;
+            opacity: 0.8;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Demo Site Live!</h1>
+        <p>This proves your deployment workflow is working perfectly.</p>
+        
+        <div class="counter" id="counter">0</div>
+        
+        <div>
+            <button class="demo-button" onclick="incrementCounter()">Click Me!</button>
+            <button class="demo-button" onclick="resetCounter()">Reset</button>
+        </div>
+        
+        <div class="status">
+            ✅ HTML: Working<br>
+            ✅ CSS: Working<br>
+            ✅ JavaScript: Working<br>
+            ✅ Deployment: Success
+        </div>
+        
+        <div class="timestamp">
+            Site deployed: <span id="timestamp"></span>
+        </div>
+    </div>
+
+    <script>
+        let count = 0;
+        
+        function incrementCounter() {
+            count++;
+            document.getElementById('counter').textContent = count;
+            
+            if (count === 10) {
+                alert('Nice! You clicked 10 times. The deployment is definitely working!');
+            }
+        }
+        
+        function resetCounter() {
+            count = 0;
+            document.getElementById('counter').textContent = count;
+        }
+        
+        // Show current timestamp
+        document.getElementById('timestamp').textContent = new Date().toLocaleString();
+        
+        // Add some fun animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('.container');
+            container.style.opacity = '0';
+            container.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                container.style.transition = 'all 0.6s ease';
+                container.style.opacity = '1';
+                container.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
